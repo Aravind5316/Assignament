@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addContent(content){
+            let p=document.createElement("p");
+            let text=document.createTextNode(content);
+            p.appendChild(text);
+            document.appendChild(p);
+        }
+        let elements=[];//Blank Array
+        let Fruits=["Apples","Mangoes","Oranges"];
+        Fruits.push("Bananas");//Add element at last
+        Fruits.unshift("Pine Apples");//add element at first...
+
+        //Using for....of to access values of the array
+        for(const fruit of Fruits){//for.....of is similar to foreach of C#
+            console.log(fruit);
+        }
+        //using for...in loop for accessing index and value
+        for(const index in Fruits) {
+            console.log(`Index:${index}:value:${Fruits[index]}`)
+        }
+
+        console.log("The location index:"+ Fruits.indexOf("Bananas"));
+        console.log("The no. of elements:"+Fruits.length);
+    </script>
+</head>
+<body>
+    <h1>Arrays in JS</h1>
+    <hr>
+    <div>
+        <h2>Points to remember</h2>
+        <ol>
+            <li>Arrays are object type in JS</li>
+            <li>It has a mix of collections and arrays concept in it.Arrays in JS allow to add,remove,update the data dynamically like collections</li>
+            <li>Newer version of JS also has MAP which works like Dictionary</li>
+            <li>
+                <div>
+                    Some of the methods :
+                    <ul>
+                        <li>Push:To add new elements to the bottom of the list</li>
+                        <li>Shift:To add element to the beginning of the list</li>
+                        <li>Splice:To remove the element</li>
+                        <li>filter:To find elements on matching criteria</li>
+                        <li>find:To find the first occurance of a single element on matching criteria</li>
+                        <li>findIndex:To get the index of the matching element</li>
+                        <li>includes:To check if the element is in the list or not,it returns Boolean</li>
+                        <li></li>
+                    </ul>
+                </div>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>
