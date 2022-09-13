@@ -1,0 +1,56 @@
+@model MVCApp.Models.EmpTable
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("SearchByName","DataBase",FormMethod.Post))
+            {
+                <p>
+                    Search Here:@Html.Editor("Search")
+                    <button>Search</button>
+                </p>
+            }
+    </div>
+    @Html.ActionLink("Home","AllEmployess")
+    <div>
+        @if(ViewData.ContainsKey("SearchedEmpLIst"))
+        {
+            var records = ViewData["SearchedEmpList"] as List<MVCApp.Models.EmpTable>;
+            foreach (var emp in records)
+            {
+                <div class=" card">
+                    <h2>@emp.EmpName</h2>
+                     <hr />
+                     <p>Address:@emp.EmpAddress</p>
+                     <p>Salary:Rs.@emp.EmpSalary</p>
+                     <p>
+                          Dept:@if (emp.DeptTable == null)
+                          {
+                                     <span style="color:blue">Not Available</span>
+                          }
+                          else
+                          {
+                                     <span>@emp.DeptTable.DeptName</span>
+                          }
+                     </p>
+                     <p>
+                       @Html.ActionLink("Edit", "OnEdit", new { id = emp.EmpId })
+                       @Html.ActionLink("Remove", "OnDelete", new { id = emp.EmpId })
+                     </p>
+                }
+                </div>
+            }
+         }
+    </div>
+</body>
+</html>
